@@ -1,15 +1,15 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import registerAction from './actions'
+import {registerUser} from './actions';
 
 class SignUp extends Component {
 
     state = {
-        'username': '',
-        'email': '',
-        'password': ''
-    }
+        username: '',
+        email: '',
+        password: '',
+    };
 
     getInputStyle() {
         return {
@@ -21,17 +21,20 @@ class SignUp extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault()
+        const {registerUser} = this.props;
+
+        e.preventDefault();
+
         const data = {
             ...this.state
         };
-        console.log(data)
-        const {registerUser} = this.props;
-        registerUser({ user: data });
-    }
+
+        registerUser(data);
+    };
+
     onChange = (event) => {
         this.setState({[event.target.name]: event.target.value});
-    }
+    };
 
     render() {
         return (
@@ -57,13 +60,13 @@ class SignUp extends Component {
 
 }
 
-const mapStateToProps = state => ({
-    register: state.register
+const mapStateToProps = ({register}) => ({
+    register: register
 
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    registerUser: registerAction
+  registerUser
 
 }, dispatch);
 

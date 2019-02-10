@@ -13,7 +13,7 @@ const configureStore = () => {
       composeWithDevTools(applyMiddleware(sagaMiddleware))
     ),
     runSaga: sagaMiddleware.run(rootSaga)
-  };
+    };
 };
 
 export default configureStore;
