@@ -23,12 +23,6 @@ class App extends Component {
         const count = this.props.count.count
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <p>Welcome to Authors' Haven.</p>
-                    <h1>{count}</h1>
-                    <button onClick={this.handleClick}>Add Count</button>
-                </header>
                 <SignUp/>
             </div>
         );
